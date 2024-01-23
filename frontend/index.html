@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Weather App</title>
+</head>
+<body>
+  <h1>Current Weather</h1>
+  <div id="weather-data"></div>
+  <script>
+    // Replace with your actual API key
+    const apiKey = "YOUR_API_KEY";
+    const city = "New York";
+
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`)
+      .then(response => response.json())
+      .then(data => {
+        const weatherElement = document.getElementById("weather-data");
+        weatherElement.innerHTML = `
+          <p>City: ${data.name}</p>
+          <p>Temperature: ${data.main.temp} Kelvin</p>
+          <p>Description: ${data.weather[0].description}</p>
+        `;
+      });
+  </script>
+</body>
+</html>

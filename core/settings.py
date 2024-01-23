@@ -40,10 +40,12 @@ DJANGO_APPS = [
 
 OUTER_APPS = [
     'rest_framework',
+    'drf_yasg',
+    
 ]
 
 INNER_APPS = [
-
+    'users',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + OUTER_APPS + INNER_APPS
